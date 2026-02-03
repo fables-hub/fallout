@@ -302,38 +302,13 @@
         <h2>In-Game Mechanics</h2>
         <p>To be expanded upon.</p>
       </div>
-
-      <div class="panel" id="activity">
-        <h2>Survivor Status</h2>
-        <ul id="activity-log"></ul>
-      </div>
-    </section>
-    
+ 
   </main>
 
   <footer class="site-footer">
     THIS SYSTEM IS NOT MONITORED
   </footer>
 
-  <script>
-    /* ======================
-       STATUS TRACKER
-       ====================== */
-
-    const activity = [
-      { name: "Elena Morozov", days: 7 },
-      { name: "Jonah Reed", days: 15 }
-    ];
-
-    const log = document.getElementById("activity-log");
-
-    activity.forEach(entry => {
-      const li = document.createElement("li");
-      li.textContent = `${entry.name} — last confirmed ${entry.days} days ago`;
-      if (entry.days >= 14) li.classList.add("inactive");
-      log.appendChild(li);
-    });
-  </script>
-
+ 
 </body>
 </html>

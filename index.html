@@ -2,53 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>VAULT ARCHIVE</title>
+  <title>AFTER THE SIRENS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     /* ======================
-       FALLOUT TERMINAL SKIN
+       POST-NUCLEAR ARCHIVE SKIN
        ====================== */
 
     :root {
-      --bg: #0b0f0c;
-      --panel: #0f1a14;
-      --border: #2a4d3b;
-      --text: #9fe3b2;
-      --muted: #5f8f73;
-      --accent: #d4ff9d;
-      --danger: #c36b6b;
+      --bg: #0a0c0b;          /* ash-black */
+      --panel: #121815;       /* bunker interior */
+      --border: #3b4a44;      /* oxidized steel */
+      --text: #d1e2d8;        /* pale phosphor */
+      --muted: #7f9a8c;
+      --accent: #e6f5ea;      /* alert white */
+      --warning: #c9a46a;     /* radiation amber */
+      --danger: #b96f6f;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: radial-gradient(circle at top, #111 0%, var(--bg) 70%);
+      background:
+        radial-gradient(circle at top, #1a1f1c 0%, var(--bg) 65%),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,0.015),
+          rgba(255,255,255,0.015) 1px,
+          transparent 1px,
+          transparent 4px
+        );
       color: var(--text);
       font-family: "IBM Plex Mono", monospace;
-      letter-spacing: 0.03em;
-    }
-
-    /* Scanlines */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.02),
-        rgba(255,255,255,0.02) 1px,
-        transparent 1px,
-        transparent 3px
-      );
-      mix-blend-mode: overlay;
-      z-index: 999;
+      letter-spacing: 0.04em;
     }
 
     /* ======================
@@ -56,26 +46,32 @@
        ====================== */
 
     .site-header {
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, #102018, var(--panel));
-      padding: 1.5rem;
-      box-shadow: inset 0 0 12px rgba(159,227,178,0.15);
+      border-bottom: 1px solid var(--border);
+      padding: 1.75rem;
+      background: linear-gradient(180deg, #151c18, #0f1412);
     }
 
     .site-header h1 {
       margin: 0 0 0.5rem;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       text-transform: uppercase;
+    }
+
+    .site-header .subtitle {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .site-header nav {
+      margin-top: 1rem;
     }
 
     .site-header nav a {
       color: var(--accent);
-      margin-right: 1.2rem;
       text-decoration: none;
-    }
-
-    .site-header nav a::before {
-      content: "▶ ";
+      margin-right: 1.5rem;
+      font-size: 0.8rem;
     }
 
     /* ======================
@@ -85,8 +81,8 @@
     .layout {
       display: grid;
       grid-template-columns: 260px 1fr;
-      gap: 1.5rem;
-      padding: 1.5rem;
+      gap: 1.75rem;
+      padding: 1.75rem;
     }
 
     /* ======================
@@ -94,99 +90,99 @@
        ====================== */
 
     .sidebar {
-      background: #0c1510;
+      background: #0f1512;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem;
+      padding: 1.25rem;
     }
 
     .sidebar h3 {
-      margin-top: 0;
       font-size: 0.85rem;
-      color: var(--accent);
+      margin-top: 0;
       text-transform: uppercase;
-      border-bottom: 1px dashed var(--border);
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
       padding-bottom: 0.4rem;
     }
 
     .sidebar p {
       font-size: 0.75rem;
       color: var(--muted);
+      line-height: 1.6;
     }
 
     /* ======================
-       PANELS
+       CONTENT PANELS
        ====================== */
 
     .content {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.75rem;
     }
 
     .panel {
-      background: linear-gradient(180deg, #0f1a14, #0b120e);
+      background: linear-gradient(180deg, #141b17, #0d1310);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem;
-      box-shadow: inset 0 0 10px rgba(159,227,178,0.08);
+      padding: 1.5rem;
     }
 
     .panel h2 {
       margin-top: 0;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
       color: var(--accent);
-      border-bottom: 1px dashed var(--border);
+      border-bottom: 1px solid var(--border);
       padding-bottom: 0.5rem;
     }
 
+    .panel p {
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+
     /* ======================
-       CHARACTER GRID
+       CHARACTER REGISTRY
        ====================== */
 
     .character-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.25rem;
     }
 
     .character-card {
-      background: #0e1812;
+      background: #0e1411;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
       text-align: center;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: box-shadow 0.2s ease;
     }
 
     .character-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 10px rgba(159,227,178,0.2);
+      box-shadow: 0 0 12px rgba(230,245,234,0.15);
     }
 
     .character-card img {
       width: 100%;
-      height: 180px;
+      height: 190px;
       object-fit: cover;
-      filter: grayscale(20%) contrast(110%);
+      filter: grayscale(40%) contrast(110%);
     }
 
     .character-card h3 {
       font-size: 0.85rem;
-      margin: 0.5rem 0 0;
+      margin: 0.6rem 0 0;
       color: var(--accent);
     }
 
     .character-card span {
       font-size: 0.7rem;
       color: var(--muted);
+      margin-bottom: 0.6rem;
       display: block;
-      margin-bottom: 0.5rem;
     }
 
     /* ======================
-       ACTIVITY LOG
+       ACTIVITY / STATUS
        ====================== */
 
     #activity-log {
@@ -196,9 +192,9 @@
 
     #activity-log li {
       list-style: none;
-      padding: 0.4rem 0;
-      border-bottom: 1px dotted var(--border);
       font-size: 0.75rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dotted var(--border);
     }
 
     #activity-log li.inactive {
@@ -211,10 +207,11 @@
        ====================== */
 
     .site-footer {
-      padding: 1rem;
       text-align: center;
+      padding: 1.25rem;
       font-size: 0.7rem;
       color: var(--muted);
+      border-top: 1px solid var(--border);
     }
 
     /* ======================
@@ -232,77 +229,78 @@
 <body>
 
   <header class="site-header">
-    <h1>Vault Archive</h1>
+    <h1>After the Sirens</h1>
+    <div class="subtitle">Emergency Continuity Archive</div>
+
     <nav>
-      <a href="#rules">Regulations</a>
-      <a href="#lore">Records</a>
-      <a href="#characters">Registry</a>
-      <a href="#activity">Vitals</a>
+      <a href="#rules">Protocols</a>
+      <a href="#lore">Incident Log</a>
+      <a href="#characters">Survivors</a>
+      <a href="#activity">Status</a>
     </nav>
   </header>
 
   <main class="layout">
     <aside class="sidebar">
-      <h3>Overseer Console</h3>
-      <p>Vault Status: OPERATIONAL</p>
-      <p>Population: 42</p>
-      <p>Year: 2291</p>
+      <h3>Current Conditions</h3>
+      <p>Radiation levels remain elevated. Infrastructure loss exceeds 80%. Civil authority fragmented.</p>
+      <p>Signal interference ongoing.</p>
     </aside>
 
     <section class="content">
       <div class="panel" id="rules">
-        <h2>Vault Regulations</h2>
-        <p>Activity checks every 14 days. One warning before expulsion. Faceclaims are unique.</p>
+        <h2>Survival Protocols</h2>
+        <p>Inactivity beyond fourteen days is assumed fatal or missing. Resources are finite. Cooperation is mandatory.</p>
       </div>
 
       <div class="panel" id="lore">
-        <h2>Archived Records</h2>
-        <p>Founded after the Great War. Control Vault with experimental social isolation parameters.</p>
+        <h2>Incident Log</h2>
+        <p>The sirens began without warning. Major population centers were lost within hours. This archive remains operational.</p>
       </div>
 
       <div class="panel" id="characters">
-        <h2>Resident Registry</h2>
+        <h2>Survivor Registry</h2>
         <div class="character-grid">
           <div class="character-card">
             <img src="https://placehold.co/300x400" alt="">
-            <h3>Jane Carter</h3>
-            <span>Vault Dweller</span>
+            <h3>Elena Morozov</h3>
+            <span>Field Medic</span>
           </div>
           <div class="character-card">
             <img src="https://placehold.co/300x400" alt="">
-            <h3>Marcus Hale</h3>
-            <span>Security</span>
+            <h3>Jonah Reed</h3>
+            <span>Scavenger</span>
           </div>
         </div>
       </div>
 
       <div class="panel" id="activity">
-        <h2>Vital Signs Monitor</h2>
+        <h2>Survivor Status</h2>
         <ul id="activity-log"></ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    VAULT-TEC PROPERTY — DO NOT DISTRIBUTE
+    THIS SYSTEM IS NOT MONITORED
   </footer>
 
   <script>
     /* ======================
-       ACTIVITY TRACKER
+       STATUS TRACKER
        ====================== */
 
     const activity = [
-      { name: "Jane Carter", days: 3 },
-      { name: "Marcus Hale", days: 16 }
+      { name: "Elena Morozov", days: 4 },
+      { name: "Jonah Reed", days: 18 }
     ];
 
     const log = document.getElementById("activity-log");
 
-    activity.forEach(char => {
+    activity.forEach(entry => {
       const li = document.createElement("li");
-      li.textContent = `${char.name} — ${char.days} days inactive`;
-      if (char.days >= 14) li.classList.add("inactive");
+      li.textContent = `${entry.name} — last confirmed ${entry.days} days ago`;
+      if (entry.days >= 14) li.classList.add("inactive");
       log.appendChild(li);
     });
   </script>

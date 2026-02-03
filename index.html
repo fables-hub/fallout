@@ -148,6 +148,47 @@
     }
 
     /* ======================
+   COLLAPSIBLE PANELS
+   ====================== */
+
+.panel details {
+  border: none;
+}
+
+.panel summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.panel summary::after {
+  content: "▸";
+  position: absolute;
+  right: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.panel details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.panel .panel-content {
+  padding: 1.25rem 1.5rem 1.5rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+
+    /* ======================
        CHARACTER REGISTRY
        ====================== */
 
@@ -262,13 +303,20 @@
 
  <section class="content">
 
-      <div class="panel" id="lore">
-        <h2>Incident Log</h2>
-        <p>The sirens began without warning. Major population centers were lost within hours. This archive remains operational.</p>
-      </div>
-   
-      <div class="panel" id="rules">
-        <h2>Survival Protocols</h2>
+<div class="panel" id="lore">
+  <details open>
+    <summary>Incident Log</summary>
+    <div class="panel-content">
+      <p>The sirens began without warning. Major population centers were lost within hours. This archive remains operational.</p>
+    </div>
+  </details>
+</div>
+
+
+   <div class="panel" id="rules">
+  <details>
+    <summary>Survival Protocols</summary>
+    <div class="panel-content">
 <p>1. While discussion is allowed, moderation rulings are final and not open to debate. This group is not run by popular vote or outside influence.</p>
 <p>2. Inclusivity is a requirement; pushing players out or ignoring them for friends or shipping is not allowed.</p>
 <p>3. Minimum activity is a requirement: You have two weeks to post in an interactive scene (not selfie posts or throwing out shitposts), after which the character will be considered inactive and removed. Staff has capability to check for posts via post history. This rule goes <b>per character,</b> not per player.</p>
@@ -277,33 +325,39 @@
 <p>6. All FCs must be 18+ (pictures used must be them over the age of 18); no deceased FCs.</p>
 <p>7. Resources are finite, so please keep that in mind to keep consistency in the setting; there is food scarcity, no infinite ammo or water, and limited access to medicine.</p>
 <p>8. For more in-depth information regarding the world, please check the "In-World Mechanics" section.</p>
+    </div>
+  </details>
+</div>
 
-      </div>
-
-
-
-
-   
-      <div class="panel" id="characters">
-        <h2>Survivor Registry</h2>
-        <div class="character-grid">
-          <div class="character-card">
-            <img src="https://placehold.co/300x400" alt="">
-            <h3>Elena Morozov</h3>
-            <span>Field Medic</span>
-          </div>
-          <div class="character-card">
-            <img src="https://placehold.co/300x400" alt="">
-            <h3>Jonah Reed</h3>
-            <span>Scavenger</span>
-          </div>
+    
+<div class="panel" id="characters">
+  <details>
+    <summary>Survivor Registry</summary>
+    <div class="panel-content">
+      <div class="character-grid">
+        <div class="character-card">
+          <img src="https://placehold.co/300x400" alt="">
+          <h3>Elena Morozov</h3>
+          <span>Field Medic</span>
+        </div>
+        <div class="character-card">
+          <img src="https://placehold.co/300x400" alt="">
+          <h3>Jonah Reed</h3>
+          <span>Scavenger</span>
         </div>
       </div>
+    </div>
+  </details>
+</div>
 
-   <div class="panel" id="canons">
-        <h2>In-Game Mechanics</h2>
-        <p>To be expanded upon.</p>
-      </div>
+<div class="panel" id="canons">
+  <details>
+    <summary>In-Game Mechanics</summary>
+    <div class="panel-content">
+      <p>To be expanded upon.</p>
+    </div>
+  </details>
+</div>
  
   </main>
 
